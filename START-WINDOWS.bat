@@ -1,0 +1,5 @@
+@echo off
+REM Starts a tiny local web server (needs Python) and opens the site.
+cd /d "%~dp0"
+start "" http://localhost:8000/index.html
+python -m http.server 8000 || py -m http.server 8000

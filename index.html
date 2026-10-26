@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MATHFEST — Math Sprint Round 1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Subtle maths symbols (decoration only) -->
+<div class="symbols" aria-hidden="true">
+  <span style="left:4%;top:12%">π</span><span style="left:12%;top:70%">∑</span>
+  <span style="left:22%;top:38%">√</span><span style="left:34%;top:84%">∞</span>
+  <span style="left:48%;top:6%">∫</span><span style="left:60%;top:90%">θ</span>
+  <span style="left:72%;top:30%">÷</span><span style="left:82%;top:76%">Δ</span>
+  <span style="left:91%;top:14%">×</span><span style="left:94%;top:52%">≠</span>
+</div>
+
+<header class="masthead">
+  <h1 class="brand">MATHFEST</h1>
+  <p class="round">MATH SPRINT — ROUND 1</p>
+</header>
+
+<main>
+  <!-- LANDING SCREEN -->
+  <section id="view-landing" class="view" aria-labelledby="tagline">
+    <p id="tagline" class="tagline">“Think Fast. Choose Wisely. Solve Brilliantly.”</p>
+    <div class="class-cards" id="classCards"></div>
+  </section>
+
+  <!-- CLASS / DOOR SCREEN (one reusable screen for all four classes) -->
+  <section id="view-doors" class="view" hidden aria-labelledby="classTitle">
+    <p class="class-indicator" id="classTitle">CLASS 9</p>
+    <h2 class="select-heading">SELECT YOUR DOOR</h2>
+    <div class="door-grid" id="doorGrid"></div>
+  </section>
+</main>
+
+<!-- CONTROL BAR -->
+<nav class="controls" aria-label="Event controls">
+  <button type="button" id="btnHome">Home</button>
+  <button type="button" id="btnBackClasses" hidden>Back to Classes</button>
+  <button type="button" id="btnReset" hidden>Reset Door Selections</button>
+  <button type="button" id="btnCoord" aria-pressed="false">Coordinator Mode: Off</button>
+  <button type="button" id="btnFull">Full Screen</button>
+</nav>
+<footer class="footer">Mathematics • Strategy • Speed • Precision</footer>
+
+<!-- STATUS PANEL (opening / success / error) -->
+<div class="overlay" id="overlay" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" tabindex="-1">
+    <h3 id="panelTitle"></h3>
+    <p id="panelText"></p>
+    <div class="panel-actions" id="panelActions"></div>
+  </div>
+</div>
+
+<div class="preview-overlay" id="previewOverlay" hidden>
+  <section class="preview-dialog" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+    <header class="preview-header">
+      <div>
+        <p class="preview-eyebrow">MATHFEST PRESENTATION</p>
+        <h2 id="previewTitle">Class 9 · Set 01</h2>
+      </div>
+      <div class="set-timer" id="setTimer" aria-label="Set timer">
+        <span class="timer-display" id="timerDisplay" role="timer" aria-live="off">01:30</span>
+        <div class="timer-controls">
+          <button type="button" id="btnStartTimer" class="timer-button">Start</button>
+          <button type="button" id="btnStopTimer" class="timer-button" disabled>Stop</button>
+        </div>
+      </div>
+      <div class="preview-actions">
+        <a id="openPdfTab" class="preview-tab-link" href="#" target="_blank" rel="noopener">Open in new tab</a>
+        <button type="button" id="btnMarkPreview" class="preview-close" hidden>Mark Door as Opened</button>
+        <button type="button" id="btnClosePreview" class="preview-close" aria-label="Close PDF preview">Close</button>
+      </div>
+    </header>
+    <iframe id="pdfFrame" title="PDF presentation preview" src="about:blank"></iframe>
+    <p class="preview-hint">Use the PDF viewer controls to zoom, navigate, or print.</p>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
